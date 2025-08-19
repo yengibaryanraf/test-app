@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Simple FE → BE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>body{font-family:system-ui,Arial;margin:2rem} code{background:#f2f2f2;padding:.2rem .4rem;border-radius:.3rem}</style>
+</head>
+<body>
+  <h1>Frontend talking to Backend</h1>
+  <button id="btn">Call /api/hello</button>
+  <pre id="out">(click the button)</pre>
+
+  <script>
+    document.getElementById('btn').onclick = async () => {
+      const r = await fetch('/api/hello');
+      const t = await r.json();
+      document.getElementById('out').textContent = JSON.stringify(t, null, 2);
+    };
+  </script>
+</body>
+</html>
